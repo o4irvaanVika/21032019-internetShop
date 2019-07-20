@@ -1,5 +1,5 @@
 <?php
- //проверка втораяg
+ //проверка вторая
 
  $title = 'главная страница';
  include $_SERVER['DOCUMENT_ROOT'] . '/modules/head.php';
