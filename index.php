@@ -1,5 +1,4 @@
 <?php
- //небольшое изменение //?
 
  $title = 'главная страница';
  include $_SERVER['DOCUMENT_ROOT'] . '/modules/head.php';

@@ -5,8 +5,6 @@
    $cat = $_GET['category']; // 8
     // получим дочерние категории 
     $itemsOnPage = 10;
-  
-  
 
     $catalog_info = [
         'catalogItems' => [],
