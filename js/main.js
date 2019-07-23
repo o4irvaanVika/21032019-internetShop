@@ -1,8 +1,9 @@
 class Product {
-    constructor(productPrice, productPic, ProductName) {
+    constructor(productPrice, productPic, ProductName, id) {
         this.pic = productPic;
         this.price = productPrice;
         this.name = ProductName;
+        this.id = id;
         this.el = document.querySelector('.catalog');
         this.pagBlock = document.querySelector('.number');
     };
@@ -12,16 +13,33 @@ class Product {
         item.classList.add('catalog-item');
 
         item.innerHTML = `
-            
             <div class="catalog-item-pic" style="background: url(/image/${this.pic}) center center / contain no-repeat"></div>
 
             <div class="catalog-item-name">${this.name}</div>
             <div class="catalog-item-price">${this.price} руб.</div>
+            <button>Добавить в корзину</button>
         `;
+        item.querySelector('button').addEventListener('click', ()=>{
+            this.addProductToBasket();
+        });
 
         this.el.appendChild(item);
 
     };
+    addProductToBasket(){
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST','/handlers/addBasketHandler.php');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send('data='+JSON.stringify({
+            id: this.id,
+            name: this.name,
+            price: this.price
+        }));
+        
+        xhr.addEventListener('load', ()=>{
+            console.log(xhr.responseText);
+        });
+    }
     clearCatalog() {
         this.el.innerHTML = '';
     };
@@ -93,8 +111,8 @@ class Product {
             // data.pagination.currentPage
 
             data.catalogItems.forEach((value, index) => {
-
-                let catalogItem = new Product(value.price, value.image, value.title);
+                console.log(value);
+                let catalogItem = new Product(value.price, value.image, value.title, value.id);
                 catalogItem.renderCatalogItem();
 
             });

@@ -1,61 +1,58 @@
 <?php
 
-   $title = 'catalog';
-   include $_SERVER['DOCUMENT_ROOT'] . '/modules/head.php';
-   include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php';
-   include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';
+    $title = 'catalog';
+    include $_SERVER['DOCUMENT_ROOT'] . '/modules/head.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php';
+    include ($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
 
-   $cat =  (isset($_GET['category'])) ? $_GET['category'] : 1;
+    
 
-
+    $cat =  (isset($_GET['category'])) ? $_GET['category'] : 1;
 
     // Запрос к БД с просьбой найти все категории где parent_id = 0
-    $query = "SELECT * FROM `categories` WHERE `parent_id` =  $cat";
+    $query = "SELECT * FROM `categories` WHERE `parent_id` = $cat";
     $result = mysqli_query($link, $query);
 
     $options = '';
-
     while ($res = mysqli_fetch_assoc($result)) {
         $options  .= '<option value="'.$res['id'].'">'.$res['name'].'</option>';
     }
-
-    // explode('-',стоимость);
 
 ?>
 
 
 
 
+<body>
 
-    <section>
+    <div class="wrapper">
 
-        <div class="menu">
-            <a href="#">Главная</a> /
-            <a href="#">Женщинам </a>
-        </div>
+        <section>
 
-        <h1>Женщинам</h1>
+            <div class="menu">
+               <a href="#">Главная / Женщинам</a>
+            </div>
 
-        <h2><i>Все товары</i></h2>
+            <h1>Женщинам</h1>
 
-        <form action="" method="">
+            <h2><i>Все товары</i></h2>
+
+            <!-- <form action="" method=""> -->
             <div class="category">
                 <div class="select">
-                   <select name="category" >
-                       <option hidden>Категория</option>
+                   <select name="category">
+                       <option value="" hidden>Категория</option>
                        <?=$options?>
                    </select>
                 </div>
-
                 <div class="select">
                     <select name="category">
-                        <option value="" hidden>Размер</option>
+                         <option value="" hidden>Размер</option>
                     </select>
                 </div>
-
                 <div class="select">
                     <select name="category">
-                      <option value=""hidden>Стоимость</option>
+                      <option value="" hidden>Стоимость</option>
                       <option value="0-1000">0-1000руб</option>
                       <option value="1000-3000">1000-3000руб</option>
                       <option value="3000-6000">3000-6000руб</option>
@@ -63,14 +60,18 @@
                     </select>
                 </div>
             </div>
-        </form>
-        
-        <div class="catalog"></div>
+            <!-- </form> -->
 
-    </section>
+            <div class="catalog"></div>
 
-    <section>
-        <div class="number"></div>
-    </section>
+        </section>
 
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/footer.php';?>
+        <section>
+            <div class="number"></div>
+        </section>
+    </div>
+
+   <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/footer.php';?>
+    <script src="/js/main.js"></script>
+</body>
+</html>

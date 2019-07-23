@@ -4,13 +4,27 @@ $title = 'corzina';
 include $_SERVER['DOCUMENT_ROOT'] . '/modules/head.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php';
 
+include('../modules/function.php');
+
+// unset($_SESSION['basket']);
+d( $_SESSION );
+
+$basket_msg = (!empty( $_SESSION['basket'] )) ? "Ваша корзина" : "Корзина пуста";
+
+$sum = 0;
+if( isset( $_SESSION['basket'] ) ){
+  foreach( $_SESSION['basket'] as $basketItem ){
+    $sum += ((float) $basketItem['price']) * $basketItem['count'];  
+  }
+}
+echo $sum;
 ?>
 <body>
   <div class="wrapper">
 
     <section>
         <div class="product">
-          <h1>Ваша корзина</h1>
+          <h1><?=$basket_msg?></h1>
           <h2><i>Товары резервируются на ограниченное время</i></h2>
         </div>
         <div class="block">
@@ -87,7 +101,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php';
 
             <tfoot>
                <tr>
-               <td colspan ="8">итого:<span>12500 руб.</span></td>
+               <td colspan ="8">итого:<span><?=$sum?> руб.</span></td>
                </tr>
             </tfoot>
 
