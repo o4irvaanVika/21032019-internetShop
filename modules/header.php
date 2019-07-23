@@ -24,7 +24,6 @@ if( isset( $_SESSION['basket'] ) ){
 
 
 
-
 <body>
 <div class="wrapper">
 

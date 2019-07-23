@@ -1,4 +1,6 @@
-<footer>
+<div class="wrapper">
+
+ <footer>
       
         <div class="footer-item">
           <h3>Коллекции</h3>
@@ -42,9 +44,9 @@
 
         </div>
         
-</footer>
+ </footer>
 
-</div>
+ </div>
 
 
 <script src="/js/main.js"></script>
