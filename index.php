@@ -1,10 +1,9 @@
 <?php
-    // Привет всем разработчикам! Это главная страница проекта. Бездельники всё сломают(
-    $title = 'главная страница';
-    include $_SERVER['DOCUMENT_ROOT'] . '/modules/head.php';
-    include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php';
 
-    //  Просто изменение в файле
+ $title = 'главная страница';
+ include $_SERVER['DOCUMENT_ROOT'] . '/modules/head.php';
+ include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php';
+
 ?>
 
     <body>

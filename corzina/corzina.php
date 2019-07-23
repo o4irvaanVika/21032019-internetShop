@@ -144,3 +144,4 @@ echo $sum;
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/footer.php';?>
     <script src="/js/main.js"></script>
 </html>
+

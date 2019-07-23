@@ -19,13 +19,89 @@ body {
     padding: 20px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
     header {
         flex-direction: column;
-        align-items: flex-start;
+        text-align: center;
     }
+    // #burgerup {
+    //     display: flex;
+    //     &:hover {
+    //         cursor: pointer;
+    //         transform: scale(1.2);
+    //     }
+    //     &:hover #burger {
+    //         background: blue;
+    //     }
+    //     &:hover #burger::before,
+    //     &:hover #burger::after {
+    //         background: blue;
+    //     }
+    // }
 }
 
+// #burgerup {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 13px;
+//     margin-bottom: 10px;
+//     display: none;
+// }
+// #burger {
+//     display: block;
+//     width: 30px;
+//     height: 3px;
+//     background: black;
+//     transition: scale 0.3s;
+// }
+// #burger::before {
+//     content: "";
+//     display: block;
+//     width: 30px;
+//     height: 3px;
+//     margin: -5px auto 0;
+//     background: black;
+// }
+// #burger::after {
+//     content: "";
+//     display: block;
+//     width: 30px;
+//     height: 3px;
+//     margin: 7px auto 0;
+//     background: black;
+// }
+@media (max-width: 767px) {
+    .burger-menu {
+        display: block;
+    }
+    // .header {
+    //     display: none;
+    //     display: flex;
+    //     flex-direction: column;
+    //     position: fixed;
+    //     z-index: 11;
+    //     left: 0;
+    //     width: 100%;
+    // }
+}
+
+// .burger-menu {
+//     background: url("/image/burger.svg") center/cover no-repeat;
+//     position: absolute;
+//     right: 10px;
+//     top: 30px;
+//     width: 30px;
+//     height: 30px;
+//     display: none;
+//     z-index: 13;
+// }
+// ._activeBurger {
+//     max-height: 123px;
+//     position: fixed;
+//     z-index: 13;
+//     background: url("/image/ic.svg") center/cover no-repeat;
+// }
 header {
     border-bottom: 2px solid $color-gray;
     left: 0px;
@@ -39,10 +115,14 @@ header {
     padding: 20px;
 }
 
+.header-first {
+    display: flex;
+}
+
 .header-left {
     background: url(/image/logo.jpg) center/cover no-repeat;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
 }
 
 .header-center ul li {
@@ -63,18 +143,12 @@ header {
     font-size: 20px;
 }
 
-.header-right:before {
+.user {
+    font-size: 15px;
+    background: url(/image/user.png) center/cover no-repeat;
     width: 20px;
     height: 20px;
-    background: url(/image/user.png) center/cover no-repeat;
-}
-
-.header-right:before {
-    content: "";
-    display: inline-block;
-    margin-right: -20px;
-    vertical-align: -5px;
-    justify-content: space-between;
+    margin-right: 5px;
 }
 
 .menu {
@@ -87,33 +161,30 @@ header {
     font: normal 15px "Fugaz One", cursive;
 }
 
-.user {
-    display: inline-block;
-    margin-left: 20px;
-    font-size: 15px;
+.header-right {
+    display: flex;
 }
 
-.user span {
+.header-right-item {
+    display: flex;
+}
+
+.header-right a {
+    text-decoration: none;
+    color: black;
+    margin-left: 5px;
+}
+
+.header-right span {
     color: orange;
-    margin-left: 10px;
+    text-decoration: none;
 }
 
 .user-link {
-    display: inline-block;
-    margin-left: 20px;
-}
-
-.user-link:before {
+    margin-left: 10px;
     background: url(/image/sumka.png) center/cover no-repeat;
     width: 16px;
     height: 16px;
-}
-
-.user-link:before {
-    content: "";
-    display: inline-block;
-    margin-right: 6px;
-    vertical-align: -1px;
 }
 
 h2 {
@@ -161,6 +232,13 @@ h1 {
     margin-bottom: 40px;
 }
 
+@media (max-width: 767px) {
+    .catalog {
+        align-items: center;
+        text-align: center;
+    }
+}
+
 .catalog {
     display: flex;
     flex-wrap: wrap;
@@ -170,19 +248,18 @@ h1 {
 .catalog-item {
     flex-grow: 1;
     min-width: calc(33.33333% - 40px);
-    max-width: calc(33.33333% - 40px);
     margin: 0 $margin;
-    border: 2px solid orange;
+    border: 2px solid $color;
     box-sizing: border-box;
     text-align: center;
     margin-bottom: 20px;
+    flex-basis: 250px;
 }
 
 .catalog-item-pic {
-    height: 490px;
+    height: 200px;
     margin-bottom: 20px;
-    background: center/cover no-repeat;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .catalog-item-name {
@@ -211,21 +288,29 @@ h1 {
 }
 
 .active {
-    border: 2px solid black;
-    background: white;
+    background: #fff;
     color: black;
+    border: 2px solid black;
 }
 
-.footer {
+footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 30px;
 }
 
-.footer h3 {
+footer h3 {
     text-transform: uppercase;
     margin-bottom: 20px;
     font-weight: 200;
+}
+
+@media (max-width: 767px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 .footer-item {
@@ -236,22 +321,28 @@ h1 {
 }
 
 .footer-right {
-    width: 25%;
     box-sizing: border-box;
     padding: 10px;
-    flex-direction: column;
 }
 
-.footer-item-collection p {
+.footer-item-collection a {
+    text-decoration: none;
     font-style: italic;
+    color: black;
 }
 
-.footer-item-collection span {
-    text-decoration: underline;
+.footer-item-collection a:hover {
+    border-bottom: 2px solid black;
 }
 
-.footer-item-about p {
+.footer-item-about a {
     font-style: italic;
+    text-decoration: none;
+    color: black;
+}
+
+.footer-item-about a:hover {
+    border-bottom: 2px solid black;
 }
 
 .footer-item-soc p {
@@ -265,6 +356,7 @@ h1 {
     display: inline-block;
     padding: 5px;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .button {
@@ -600,7 +692,6 @@ tfoot td span {
     width: 10%;
     pointer-events: none;
     box-sizing: border-box;
-    
     // position: absolute;
     // top: 38px;
     // right: 15px;
@@ -616,6 +707,6 @@ tfoot td span {
 .preloader {
     margin: 0 auto;
     width: 80px;
-    height: 80px; 
-    background: url(/image/831.svg) center center / contain no-repeat;
+    height: 80px;
+    background: url(/image/126.svg)center center / contain no-repeat;
 }

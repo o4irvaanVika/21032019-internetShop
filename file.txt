@@ -1,11 +1,1 @@
-1. Call to undefined function mysqli_quer()
-    // Скорее всего синтаксическая ошибка в написании функции
-
-2. mysqli_fetch_assoc() expects parameter 1 to be mysqli_result 
-    // Ошибка в запросе к БД (Необходимо проверить запрос)
-
-3. syntax error, unexpected '$items' (T_VARIABLE) 
-    // поду находятся некорректные синтаксические записи
-
-4. Undefined variable: res 
-    неизвестная переменная. Переменная, к которой мы обращаемяс не существует.
+привет,я AJAX!

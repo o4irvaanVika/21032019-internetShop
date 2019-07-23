@@ -1,10 +1,9 @@
 <?php
-    
-    include($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
-    include($_SERVER['DOCUMENT_ROOT'] . '/modules/function.php');
-    $items = [];
-    $cat = $_GET['category']; // 8
-    // поучим дочерние категории 
+   include $_SERVER['DOCUMENT_ROOT'] . '/config/config.php';
+   include $_SERVER['DOCUMENT_ROOT'] . '/modules/function.php';
+   $items = [];
+   $cat = $_GET['category']; // 8
+    // получим дочерние категории 
     $itemsOnPage = 10;
 
     $catalog_info = [
@@ -32,13 +31,17 @@
     // 3. Делим 32 на 10 (количество товаров на странице) + округляю вверх
     // 4. Делаю запрос к БД с просьбой найти и взять первые 11-20 товаров
     // 5. Получаем эти товары и отправляем в JS 
- 
+
     sleep(2);
     // preloader
 
     // Узнаем, родительская это категория ил дочерняя
     $query = "SELECT `parent_id` FROM `categories` WHERE `id` = $cat";
     $result = mysqli_fetch_assoc( mysqli_query($link, $query) );
+
+
+
+
 
     if ( !$result['parent_id'] ) { // 0 - true  // - false
 
@@ -72,12 +75,12 @@
         echo json_encode( $catalog_info );
     }
 
-    
-    
+   
 
-    // $items - массив с данными о каждой строчке
-
-
+   
+   
+   
+   
     // echo json_encode($items);
 
     // $items = [

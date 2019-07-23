@@ -19,24 +19,24 @@ class Product {
             <div class="catalog-item-price">${this.price} руб.</div>
             <button>Добавить в корзину</button>
         `;
-        item.querySelector('button').addEventListener('click', ()=>{
+        item.querySelector('button').addEventListener('click', () => {
             this.addProductToBasket();
         });
 
         this.el.appendChild(item);
 
     };
-    addProductToBasket(){
+    addProductToBasket() {
         let xhr = new XMLHttpRequest();
-        xhr.open('POST','/handlers/addBasketHandler.php');
+        xhr.open('POST', '/handlers/addBasketHandler.php');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send('data='+JSON.stringify({
+        xhr.send('data=' + JSON.stringify({
             id: this.id,
             name: this.name,
             price: this.price
         }));
-        
-        xhr.addEventListener('load', ()=>{
+
+        xhr.addEventListener('load', () => {
             console.log(xhr.responseText);
         });
     }
@@ -58,12 +58,12 @@ class Product {
         //     'allBlocks' : 4
         // ]
 
-        for ( let i = 1; i <= allBlocks; i++ ) {
-            
+        for (let i = 1; i <= allBlocks; i++) {
+
             let item = document.createElement('div'); // создаем элемент
             item.classList.add('number-item'); // добавляем ему класс
             if (i == currentPage) item.classList.add('active'); // добавлем active для второго блока
-            
+
             item.addEventListener('click', () => {
                 // 1. Узнаем значение селекта
                 let allSelectsAndValues = document.querySelectorAll('select');
@@ -81,9 +81,9 @@ class Product {
     renderCatalog(category, currentPage) {
         // 0 null undefined ''
         console.log(currentPage);
-        let cat = ( category !== '' ) ?   category   :   '?category=1';
+        let cat = (category !== '') ? category : '?category=1';
         currentPage = `&curPage=${currentPage || 1}`;
-        
+
         // let cat;
         // if (category !== '') {
         //     cat = category;
@@ -133,7 +133,7 @@ newCatalog.renderCatalog(cat);
 
 let catSelect = document.querySelectorAll('select');
 
-catSelect.forEach(function( value, index) {
+catSelect.forEach(function(value, index) {
 
     value.addEventListener('change', function() {
         // 1. Узнаем значение селекта
@@ -142,8 +142,7 @@ catSelect.forEach(function( value, index) {
         let catValue = `?category=${allSelectsAndValues[0].value}&size=${allSelectsAndValues[1].value}&price=${allSelectsAndValues[2].value}
         `;
         // 2. Рендерим каталог заново
-        newCatalog.renderCatalog( catValue );
+        newCatalog.renderCatalog(catValue);
     })
 
 })
-    
