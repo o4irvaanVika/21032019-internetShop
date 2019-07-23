@@ -40,12 +40,12 @@ class Product {
         //     'allBlocks' : 4
         // ]
 
-        for (let i = 1; i <= allBlocks; i++) {
-
+        for ( let i = 1; i <= allBlocks; i++ ) {
+            
             let item = document.createElement('div'); // создаем элемент
             item.classList.add('number-item'); // добавляем ему класс
             if (i == currentPage) item.classList.add('active'); // добавлем active для второго блока
-
+            
             item.addEventListener('click', () => {
                 // 1. Узнаем значение селекта
                 let allSelectsAndValues = document.querySelectorAll('select');
@@ -61,11 +61,11 @@ class Product {
         }
     };
     renderCatalog(category, currentPage) {
-
+        // 0 null undefined ''
         console.log(currentPage);
-        let cat = (category !== '') ? category : '?category=1';
+        let cat = ( category !== '' ) ?   category   :   '?category=1';
         currentPage = `&curPage=${currentPage || 1}`;
-
+        
         // let cat;
         // if (category !== '') {
         //     cat = category;
@@ -115,7 +115,7 @@ newCatalog.renderCatalog(cat);
 
 let catSelect = document.querySelectorAll('select');
 
-catSelect.forEach(function(value, index) {
+catSelect.forEach(function( value, index) {
 
     value.addEventListener('change', function() {
         // 1. Узнаем значение селекта
@@ -124,7 +124,8 @@ catSelect.forEach(function(value, index) {
         let catValue = `?category=${allSelectsAndValues[0].value}&size=${allSelectsAndValues[1].value}&price=${allSelectsAndValues[2].value}
         `;
         // 2. Рендерим каталог заново
-        newCatalog.renderCatalog(catValue);
+        newCatalog.renderCatalog( catValue );
     })
 
 })
+    
