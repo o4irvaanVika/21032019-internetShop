@@ -150,9 +150,10 @@ echo $sum;
 
 </section>
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/footer.php';
 
-?>
+
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/footer.php';?>
+
 
 
 

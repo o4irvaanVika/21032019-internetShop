@@ -6,8 +6,6 @@
 
 ?>
 
-    <body>
-        <div class="wrapper">
 
             <section>
                 <div class="main">
@@ -40,9 +38,7 @@
 
         </div>
 
-    </body>
+ 
 
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/footer.php';?>
-    <script src="/js/main.js"></script>
-
-    </html>
+ 
